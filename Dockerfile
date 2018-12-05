@@ -24,7 +24,7 @@ RUN make install
 FROM base_image
 RUN apk add --no-cache ca-certificates openssl pcre zlib ffmpeg
 COPY --from=build /usr/local/nginx /usr/local/nginx
-COPY nginx.conf /usr/local/nginx/conf/nginx.conf
+#COPY nginx.conf /usr/local/nginx/conf/nginx.conf
 RUN rm -rf /usr/local/nginx/html /usr/local/nginx/conf/*.default
 ENTRYPOINT ["/usr/local/nginx/sbin/nginx"]
 CMD ["-g", "daemon off;"]
